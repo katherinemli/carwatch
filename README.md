@@ -1,21 +1,33 @@
 # CarWatch 🚗
 
-Rastreador de inventario usado para la compra de enero. Corre solo en la VM
-(`172.19.0.213`, usuario `user`, carpeta `~/car_watch`).
+Rastreador de inventario de autos usados en concesionarias de Montreal. Revisa
+cada dealer a su ritmo (respetando `robots.txt`), guarda el historial de precios
+en SQLite, puntua cada auto 🟢 / 🟡 / 🔴 y genera un informe diario y una web.
 
-## Lo unico que necesitas recordar
+## Instalacion
 
 ```bash
-ssh user@172.19.0.213
-cat ~/car_watch/reports/latest.md     # el informe
+git clone https://github.com/katherinemli/carwatch.git
+cd carwatch
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python3 -m carwatch run               # primera corrida
+cat reports/latest.md                 # el informe
+python3 ui/app.py                     # la web en http://localhost:8080 (PORT para cambiarlo)
 ```
 
-Eso es todo. El cron ya corre solo cada noche a las 03:15.
+Para que corra solo cada noche (03:15), en `crontab -e`:
 
-## Los otros comandos (por si acaso)
+```
+15 3 * * * cd ~/carwatch && .venv/bin/python -m carwatch run
+```
+
+La web ya viene compilada en `ui/dist/`. Si cambias el codigo de `ui-src/`:
+`cd ui-src && npm install && npm run build` y copia `ui-src/dist/` a `ui/dist/`.
+
+## Comandos
 
 ```bash
-cd ~/car_watch
 python3 -m carwatch status            # que dealer toca y cuando
 python3 -m carwatch run               # corrida manual (respeta las cadencias)
 python3 -m carwatch run --force       # ignora las cadencias
