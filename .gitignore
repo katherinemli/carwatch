@@ -1,0 +1,13 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node / build
+ui-src/node_modules/
+ui-src/dist/
+
+# Datos locales generados
+data/
+reports/
+*.log

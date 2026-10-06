@@ -1,0 +1,253 @@
+[
+  {
+    "id": "mazda_gabriel",
+    "name": "Groupe Mazda Gabriel",
+    "platform": "d2c",
+    "base": "https://www.mazdagabriel.com",
+    "entry": "/used/search.html",
+    "cadence_days": 1,
+    "tier": 1,
+    "enabled": true,
+    "note": "Grupo con VARIOS lotes. El campo vehicle_location dice el lote real de cada auto. Confirmado con stock <10k.",
+    "lots": {
+      "Mazda Gabriel St-Laurent": {
+        "transit_home_min": 15,
+        "transit_work_min": 10
+      },
+      "Mazda Gabriel St-Jacques": {
+        "transit_home_min": 50,
+        "transit_work_min": 50
+      },
+      "_default": {
+        "transit_home_min": 40,
+        "transit_work_min": 40
+      }
+    }
+  },
+  {
+    "id": "spinelli_toyota_lachine",
+    "name": "Spinelli Toyota Lachine",
+    "platform": "sm360",
+    "base": "https://www.spinellitoyotalachine.com",
+    "sitemap": "/en/sitemap-xml",
+    "used_url_marker": "used-inventory",
+    "cadence_days": 1,
+    "tier": 1,
+    "enabled": true,
+    "note": "200 Montreal-Toronto Blvd, Lachine H8S 1B8. Confirmado con stock <10k.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 45,
+        "transit_work_min": 40
+      }
+    }
+  },
+  {
+    "id": "hyundai_st_laurent",
+    "name": "Saint-Laurent Hyundai",
+    "platform": "sm360",
+    "base": "https://www.hyundai-montreal.com",
+    "sitemap": "/en/sitemap-xml",
+    "used_url_marker": "used-inventory",
+    "cadence_days": 1,
+    "tier": 1,
+    "enabled": true,
+    "note": "Cote-de-Liesse. MUY cerca de casa y trabajo, por eso tier 1 aunque historicamente sin stock <10k.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 20,
+        "transit_work_min": 12
+      }
+    }
+  },
+  {
+    "id": "excel_honda",
+    "name": "Excel Honda",
+    "platform": "d2c",
+    "base": "https://www.excelhonda.com",
+    "entry": "/used/search.html",
+    "cadence_days": 1,
+    "tier": 2,
+    "enabled": true,
+    "note": "Zone Pare / metro De la Savane.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 35,
+        "transit_work_min": 40
+      }
+    }
+  },
+  {
+    "id": "montroyal_chevrolet",
+    "name": "Mont-Royal Chevrolet Buick GMC",
+    "platform": "sm360",
+    "base": "https://www.montroyalchevrolet.com",
+    "sitemap": "/en/sitemap-xml",
+    "used_url_marker": "used-inventory",
+    "cadence_days": 1,
+    "tier": 2,
+    "enabled": true,
+    "note": "Jean-Talon Ouest.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 40,
+        "transit_work_min": 45
+      }
+    }
+  },
+  {
+    "id": "silver_star_mercedes",
+    "name": "Silver Star Mercedes-Benz Montreal",
+    "platform": "auto",
+    "base": "https://www.mercedes-benz-silverstar.ca",
+    "sitemap": "/en/sitemap-xml",
+    "used_url_marker": "used-inventory",
+    "cadence_days": 4,
+    "tier": 2,
+    "enabled": true,
+    "note": "7800 Bd Decarie. OJO: silverstarmercedes.com es otro dealer EN NUEVA YORK, no este.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 35,
+        "transit_work_min": 40
+      }
+    }
+  },
+  {
+    "id": "spinelli_lexus_lachine",
+    "name": "Spinelli Lexus Lachine",
+    "platform": "auto",
+    "base": "https://www.spinellilexuslachine.com",
+    "sitemap": "/en/sitemap-xml",
+    "used_url_marker": "used-inventory",
+    "cadence_days": 1,
+    "tier": 2,
+    "enabled": true,
+    "note": "Verificar dominio con: carwatch probe. spinellilexus.com es splash de grupo.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 45,
+        "transit_work_min": 40
+      }
+    }
+  },
+  {
+    "id": "vw_gabriel_st_laurent",
+    "name": "Volkswagen Gabriel St-Laurent",
+    "platform": "blocked",
+    "base": "https://www.gabrielvw.com",
+    "cadence_days": 0,
+    "tier": 1,
+    "enabled": false,
+    "note": "BLOQUEADO: el sitio esta detras de un challenge anti-bot (Cloudflare). Saltarlo no seria legitimo, asi que NO se scrapea. Revisar a mano. Esta cerca de casa/trabajo, asi que vale la pena mirarlo tu misma de vez en cuando.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 18,
+        "transit_work_min": 12
+      }
+    }
+  },
+  {
+    "id": "longueuil_mazda",
+    "name": "Longueuil Mazda",
+    "platform": "d2c",
+    "base": "https://www.longueuilmazda.com",
+    "entry": "/used/search.html",
+    "cadence_days": 1,
+    "tier": 3,
+    "enabled": true,
+    "note": "LEJOS. Se guarda historial pero no aparece como candidato mientras max_transit_min sea 60.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 85,
+        "transit_work_min": 90
+      }
+    }
+  },
+  {
+    "id": "longueuil_toyota",
+    "name": "Longueuil Toyota",
+    "platform": "sm360",
+    "base": "https://www.longueuiltoyota.ca",
+    "sitemap": "/en/sitemap-xml",
+    "used_url_marker": "used-inventory",
+    "cadence_days": 1,
+    "tier": 3,
+    "enabled": true,
+    "note": "LEJOS. Solo historial por ahora.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 85,
+        "transit_work_min": 90
+      }
+    }
+  },
+  {
+    "id": "rivesud_chrysler",
+    "name": "Rive-Sud Chrysler",
+    "platform": "sm360",
+    "base": "https://www.rivesudchrysler.com",
+    "sitemap": "/en/sitemap-xml",
+    "used_url_marker": "used-inventory",
+    "cadence_days": 7,
+    "tier": 3,
+    "enabled": true,
+    "note": "LEJOS (Rive-Sud). Solo historial por ahora.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 85,
+        "transit_work_min": 90
+      }
+    }
+  },
+  {
+    "id": "spinelli_honda",
+    "name": "Spinelli Honda",
+    "platform": "sm360",
+    "base": "https://www.spinellihonda.com",
+    "sitemap": "/en/sitemap-xml",
+    "used_url_marker": "used-inventory",
+    "cadence_days": 1,
+    "tier": 3,
+    "enabled": true,
+    "note": "Oeste de la isla. La direccion real de cada auto la guarda el scraper (vehicle_address): ajusta los minutos cuando la veas.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 65,
+        "transit_work_min": 60
+      }
+    }
+  },
+  {
+    "id": "nissan_gabriel_anjou",
+    "name": "Nissan Gabriel Anjou",
+    "platform": "forbidden",
+    "base": "https://www.nissangabrielanjou.com",
+    "cadence_days": 0,
+    "tier": 3,
+    "enabled": false,
+    "note": "NO SE SCRAPEA: su robots.txt dice 'User-agent: * / Disallow: /' (solo permite a Googlebot). Revisar a mano si te interesa.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 65,
+        "transit_work_min": 70
+      }
+    }
+  },
+  {
+    "id": "hgregoire",
+    "name": "HGregoire",
+    "platform": "manual",
+    "base": "https://www.hgregoire.com",
+    "cadence_days": 0,
+    "tier": 3,
+    "enabled": false,
+    "note": "Miles de autos usados. Permite crawlear (delay 10s) pero un barrido completo serian miles de peticiones; devolvio 429 al sondearlo. Mejor buscar a mano en su web. Tiene sucursal en Anjou.",
+    "lots": {
+      "_default": {
+        "transit_home_min": 70,
+        "transit_work_min": 75
+      }
+    }
+  }
+]

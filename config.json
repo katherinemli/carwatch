@@ -1,0 +1,91 @@
+{
+  "_comment": "CarWatch — rastreador de inventario usado. Editable a mano.",
+  "contact": "",
+  "_contact_help": "Opcional: pon aqui un email o URL de contacto. Se envia en el User-Agent como cortesia hacia los sitios. Vacio = no se envia nada tuyo.",
+  "anchors": {
+    "home": {
+      "label": "Casa — Saint-Laurent",
+      "near": "Saint-Laurent"
+    },
+    "work": {
+      "label": "Trabajo — Saint-Laurent",
+      "near": "Saint-Laurent"
+    }
+  },
+  "filters": {
+    "condition": "USED",
+    "transmission": "AUTOMATIC",
+    "price_green_max": 10000,
+    "price_yellow_max": 12000,
+    "price_yellow_needs_proximity": true,
+    "_price_help": "<=10000 es tu objetivo, 10001-12000 es la banda amarilla. YA NO es un filtro duro: un auto mas caro se sigue guardando y puntuando, solo que nunca sale en verde y baja de nota. Lo que decide que ves en pantalla es el slider de la web.",
+    "max_transit_min": 60,
+    "_transit_help": "Tope de referencia puerta a puerta desde casa O trabajo, el que sea menor. YA NO es un filtro duro: los dealers lejos (Longueuil, Rive-Sud) se siguen guardando y puntuando con todo su historial, solo que penalizan la nota y nunca salen en verde. Sube el slider de trayecto en la web para verlos.",
+    "exclude_status": [
+      "SOLD",
+      "PENDING",
+      "RESERVED",
+      "IN_TRANSIT",
+      "COMING_SOON",
+      "NEW"
+    ],
+    "km_per_year_expected": 20000,
+    "km_ratio_green_max": 1.15,
+    "km_ratio_yellow_max": 1.6,
+    "km_absolute_max": 240000,
+    "age_green_max": 14,
+    "fuel_preferred": [
+      "Gasoline",
+      "Gas",
+      "Essence"
+    ],
+    "fuel_penalized": [
+      "Electric",
+      "Electrique",
+      "Diesel",
+      "Plug-in Hybrid"
+    ],
+    "_fuel_help": "SOLO gasolina. Electrico/hibrido/diesel se excluyen como filtro duro, igual que la transmision manual.",
+    "require_gasoline": true,
+    "fuel_excluded": [
+      "Electric",
+      "Hybrid",
+      "Plug-in Hybrid",
+      "Diesel"
+    ],
+    "exclude_high_repair_brands": true,
+    "_repair_help": "Filtro DURO: descarta las marcas de la lista 'caro' de risk_rules.json (piezas caras, taller especializado). Es tu primer auto y va sin garantia: una averia normal en una de esas marcas es una factura de miles. Ponlo en false si algun dia quieres verlas igual; aunque este en true se siguen guardando y aparecen en la seccion 'Fuera'."
+  },
+  "taxes": {
+    "gst": 0.05,
+    "qst": 0.09975,
+    "_help": "Estimacion para separar precio anunciado del costo real. No incluye fees del dealer ni SAAQ."
+  },
+  "adaptive": {
+    "enabled": true,
+    "promote_if_green_within_days": 14,
+    "promote_to_cadence_days": 1,
+    "demote_if_no_candidate_days": 60,
+    "demote_to_cadence_days": 7,
+    "_help": "Si un dealer produce candidatos, sube frecuencia. Si lleva 2 meses sin nada, baja."
+  },
+  "politeness": {
+    "min_delay_seconds": 6,
+    "respect_robots_crawl_delay": true,
+    "max_requests_per_dealer_per_run": 90,
+    "timeout_seconds": 30,
+    "abort_on_bot_challenge": true,
+    "_help": "Nunca se saltan robots.txt, nunca se resuelve un challenge anti-bot, nunca se tocan rutas Disallow."
+  },
+  "ui": {
+    "default_max_price": 12000,
+    "default_max_transit_min": 60,
+    "_help": "Donde arrancan los sliders de la web. Son SOLO un filtro de lo que ves: no cambian lo que se scrapea, lo que se guarda, ni la nota de ningun auto. Muevelos sin miedo."
+  },
+  "stats": {
+    "prior_strength": 40,
+    "confidence": 0.95,
+    "min_sample_for_rate": 30,
+    "_help": "Como se compara una concesionaria con otra. 'prior_strength' = cuantos autos de evidencia hacen falta antes de creerse la tasa de acierto de un dealer (40 = con menos de 40 autos la tasa se acerca a la media de todos). 'confidence' = ancho de la barra de incertidumbre. 'min_sample_for_rate' = por debajo de eso se dice 'pocos datos' en vez de un numero."
+  }
+}

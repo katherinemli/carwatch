@@ -1,0 +1,62 @@
+{
+  "_comment": "HEURISTICAS EDITABLES. El eje NO es 'que marca es fiable', es COSTE Y FACILIDAD DE REPARAR fuera de garantia: cuanto cuesta la pieza, cuantos talleres del barrio pueden hacerlo, y si hace falta un especialista de la marca. Para un primer auto barato eso es lo que decide si un imprevisto son $400 o $3.000.",
+
+  "brand_repair": {
+    "facil": ["Toyota", "Honda", "Mazda", "Hyundai", "Kia", "Nissan", "Suzuki", "Scion"],
+    "normal": ["Chevrolet", "Ford", "Chrysler", "Dodge", "Jeep", "Ram", "Buick", "GMC",
+               "Pontiac", "Saturn", "Subaru", "Mitsubishi", "Acura", "Lexus"],
+    "caro":  ["Mercedes-Benz", "Mercedes", "BMW", "Audi", "Volkswagen", "Volvo", "MINI",
+              "Jaguar", "Land Rover", "Range Rover", "Porsche", "Alfa Romeo", "Maserati",
+              "FIAT", "Cadillac", "Lincoln", "Infiniti", "Genesis", "Smart", "Saab", "Tesla"]
+  },
+  "_brand_repair_help": {
+    "facil": "Pieza barata y disponible en cualquier lado; lo arregla el taller de la esquina.",
+    "normal": "Pieza y mano de obra de precio corriente; no necesitas al concesionario.",
+    "caro": "Pieza cara, a veces solo del concesionario, y hace falta un taller especializado. Fuera de garantia, una averia normal se vuelve una factura grande. Por eso 'caro' se DESCARTA (se puede apagar con filters.exclude_high_repair_brands en config.json)."
+  },
+
+  "model_checks": {
+    "_help": "Que revisar en la inspeccion de ~$100, modelo por modelo. NO son veredictos ni etiquetas de fiabilidad: son la lista de la compra para el mecanico. severidad 'alta' = el punto debil conocido es una reparacion CARA, asi que ese modelo nunca sale en verde sin inspeccion; 'media'/'baja' = miralo, pero no cambia el veredicto tanto.",
+
+    "Journey":       { "severidad": "alta",  "revisar": "Transmision en frio y en caliente, frenos (discos y lineas) y todo el electrico: ventanillas, tablero, climatizacion. Pide el historial de mantenimiento." },
+    "200":           { "severidad": "alta",  "revisar": "Depende del ano: en los 2015-2017 el punto caro es la caja automatica de 9 velocidades; en los 2011-2014, la de 6 y las fugas de aceite. Sea cual sea, pruebala en frio, en ciudad y en autopista: no debe dudar ni dar tirones." },
+    "Genesis":       { "severidad": "alta",  "revisar": "Ojo: aunque ponga Hyundai, es su sedan grande de lujo (V6/V8, propulsion trasera). Piezas, frenos y neumaticos cuestan como los de una marca premium, no como los de un Elantra. Tratalo como coche de lujo usado." },
+    "Cherokee":      { "severidad": "alta",  "revisar": "Caja de 9 velocidades: pruebala en frio. Revisa tambien el modulo electrico y las fugas de aceite." },
+    "Focus":         { "severidad": "alta",  "revisar": "Caja PowerShift de doble embrague (2011-2016): tirones a baja velocidad y embragues caros. Confirma el ano y pruebala en trafico parado." },
+    "Fiesta":        { "severidad": "alta",  "revisar": "Misma caja PowerShift (2011-2016) que el Focus. Pruebala en trafico y pregunta si le cambiaron el modulo TCM." },
+    "Rogue":         { "severidad": "alta",  "revisar": "Caja CVT: es LA reparacion cara de este modelo. Arranque en frio, sin zumbido metalico ni tirones al acelerar. Pide factura si ya se la cambiaron." },
+    "Murano":        { "severidad": "alta",  "revisar": "Caja CVT en un coche pesado: pruebala en frio y en cuesta. Revisa tambien el radiador de la CVT." },
+
+    "Altima":        { "severidad": "media", "revisar": "CVT: en frio no debe zumbar ni tironear. Revisa fugas de aceite del motor." },
+    "Sentra":        { "severidad": "media", "revisar": "CVT: pruebala en frio. Revisa el aire acondicionado y el oxido en los bajos." },
+    "Versa":         { "severidad": "media", "revisar": "CVT y suspension delantera. Es un coche barato de mantener si la caja esta sana." },
+    "Qashqai":       { "severidad": "media", "revisar": "CVT y el sistema de camaras. Pruebala en frio." },
+    "Cruze":         { "severidad": "media", "revisar": "Motor 1.4 turbo: fugas de refrigerante (deposito y tapa), estado del turbo y consumo de aceite." },
+    "Escape":        { "severidad": "media", "revisar": "Motores 1.5/1.6 EcoBoost: fugas de refrigerante hacia el cilindro. Revisa la caja y el nivel de aceite." },
+    "Grand Caravan": { "severidad": "media", "revisar": "Puertas correderas electricas (caras de arreglar), suspension trasera y transmision. Abrelo y cierralo todo varias veces." },
+    "Mazda3":        { "severidad": "media", "revisar": "En Quebec el punto debil es el OXIDO en los arcos traseros y bajos. Miralo con el coche en alto, no solo por fuera." },
+    "Mazda6":        { "severidad": "media", "revisar": "Oxido en arcos traseros y faldones. Mecanicamente sencillo, pero el oxido es lo que lo mata aqui." },
+    "Impreza":       { "severidad": "media", "revisar": "Boxer: consumo de aceite y juntas de culata. Revisa el estado de la CVT y el diferencial trasero." },
+    "Crosstrek":     { "severidad": "media", "revisar": "Boxer + AWD: consumo de aceite, juntas de culata y CVT. El AWD encarece neumaticos (van de cuatro en cuatro)." },
+    "Forester":      { "severidad": "media", "revisar": "Consumo de aceite y juntas de culata. Pregunta cuando se cambio la correa/cadena." },
+    "Outback":       { "severidad": "media", "revisar": "Consumo de aceite, juntas de culata y CVT. Revisa los brazos de suspension." },
+    "Legacy":        { "severidad": "media", "revisar": "Consumo de aceite y juntas de culata. Revisa oxido en los bajos." },
+    "Elantra":       { "severidad": "media", "revisar": "Motores GDI: consumo de aceite y ruido metalico en frio. Pregunta si se aplico la campana de motor del fabricante." },
+    "Tucson":        { "severidad": "media", "revisar": "Motor 2.0/2.4 GDI: consumo de aceite. Pregunta por la campana de motor y revisa el historial." },
+    "Sportage":      { "severidad": "media", "revisar": "Motor 2.0/2.4 GDI: consumo de aceite y ruido en frio. Pregunta por la campana de motor." },
+    "Eclipse":       { "severidad": "media", "revisar": "A esta edad lo caro es el oxido y la suspension, no el motor. Miralo en alto y revisa los bajos." },
+
+    "Corolla":       { "severidad": "baja",  "revisar": "Poco que temer mecanicamente. Revisa oxido bajo los faldones y, en el 1.8, el consumo de aceite." },
+    "Civic":         { "severidad": "baja",  "revisar": "Revisa oxido en los pasos de rueda traseros y el aire acondicionado (compresor)." },
+    "CR-V":          { "severidad": "baja",  "revisar": "Aire acondicionado (compresor) y oxido en los bajos. Mecanica muy accesible." },
+    "HR-V":          { "severidad": "baja",  "revisar": "CVT en frio y aire acondicionado. Revisa oxido en los bajos." },
+    "Accent":        { "severidad": "baja",  "revisar": "Coche sencillo y barato de mantener. Revisa embrague de la caja automatica y oxido." },
+    "Spark":         { "severidad": "baja",  "revisar": "Caja automatica y oxido. Piezas baratas, pero es un coche pequeno muy usado en ciudad." },
+    "Yaris":         { "severidad": "baja",  "revisar": "Muy poco que revisar. Oxido en los bajos y estado de los frenos." },
+    "Fit":           { "severidad": "baja",  "revisar": "Revisa oxido en los bajos y el aire acondicionado." },
+    "Rio":           { "severidad": "baja",  "revisar": "Coche sencillo. Revisa oxido y el estado de la caja automatica." },
+    "Forte":         { "severidad": "baja",  "revisar": "Revisa consumo de aceite y oxido en los bajos." }
+  },
+
+  "_quebec_note": "En Quebec el oxido por la sal es lo que jubila a la mayoria de los coches baratos antes que el motor. En CUALQUIER inspeccion, que el mecanico lo suba al elevador y mire bajos, lineas de freno y arcos de rueda."
+}
